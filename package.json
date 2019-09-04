@@ -1,0 +1,14 @@
+{
+  "name": "components-collection",
+  "version": "1.0.0",
+  "description": "Implementations of accessible components",
+  "main": "index.html",
+  "repository": "https://github.com/klusaktomasz/components-collection.git",
+  "author": "Tomasz Kłusak <klusaktomasz@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2"
+  }
+}
