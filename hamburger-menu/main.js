@@ -38,7 +38,7 @@ class HamburgerMenu {
    * @private
    */
   _registerEvents () {
-    this.toggle.addEventListener('click', this.toggleState);
+    this.toggle.addEventListener('click', () => this.toggleState());
   }
 
   /**
@@ -59,7 +59,10 @@ class HamburgerMenu {
    * @private
    */
   _showMenu () {
-    // this.toggle.setAttribute('aria-label', 'Close menu');
+    this.state = true;
+
+    this.toggle.setAttribute('aria-label', 'Close menu');
+    this.toggle.classList.add('hamburger-menu__toggle--close');
   }
 
   /**
@@ -67,7 +70,10 @@ class HamburgerMenu {
    * @private
    */
   _hideMenu () {
-    //this.toggle.setAttribute('aria-label', 'Open menu');
+    this.state= false;
+
+    this.toggle.setAttribute('aria-label', 'Open menu');
+    this.toggle.classList.remove('hamburger-menu__toggle--close');
   }
 };
 

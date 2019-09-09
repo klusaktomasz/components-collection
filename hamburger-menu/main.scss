@@ -13,13 +13,83 @@ body {
   font-family: 'Rajdhani', sans-serif;
 }
 
+.top-bar {
+  padding: 1em;
+  background: #fff;
+  box-shadow: 0 6px 8px rgba(102, 119, 136, 0.03),
+              0 1px 2px rgba(102, 119, 136, 0.3);
+  display: flex;
+  justify-content: flex-end;
+}
 
 /* Hamburger Menu styling */
 .hamburger-menu {
 
 }
 
+.hamburger-menu__toggle {
+  $toggle-size: 48px;
+  $toggle-padding: 10px;
+
+  display: block;
+  background: none;
+  border: none;
+  width: $toggle-size;
+  height: $toggle-size;
+  padding: $toggle-padding;
+  cursor: pointer;
+  position: relative;
+
+  &-inner,
+  &-inner:before,
+  &-inner:after {
+    content: '';
+    position: absolute;
+    left: $toggle-padding;
+    width: $toggle-size - $toggle-padding * 2;
+    height: 2px;
+    background: #000;
+  }
+
+  &-inner {
+    transform: translateY(-50%);
+    will-change: background-color;
+    transition: background-color 0.1s ease-in-out;
+
+    &:before {
+      top: -$toggle-padding;
+      left: 0;
+
+      will-change: transform;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    &:after {
+      top: $toggle-padding;
+      left: 0;
+
+      will-change: transform;
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+
+  &--close {
+    .hamburger-menu__toggle-inner {
+      background: transparent;
+    }
+
+    .hamburger-menu__toggle-inner:before {
+      transform: translateY($toggle-padding) rotate(45deg);
+    }
+
+    .hamburger-menu__toggle-inner:after {
+      transform: translateY(-$toggle-padding) rotate(-45deg);
+    }
+  }
+}
+
 .hamburger-menu__list {
+  display: none;
   padding: 0;
   margin: 0;
   list-style: none;
