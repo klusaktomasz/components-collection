@@ -89,11 +89,63 @@ body {
 }
 
 .hamburger-menu__list {
-  display: none;
-  padding: 0;
+  padding: 1em 0;
   margin: 0;
   list-style: none;
   position: absolute;
   left: 0;
   top: 0;
+  display: flex;
+  flex-flow: column wrap;
+  min-height: 100vh;
+  min-width: 300px;
+  background: #fff;
+  box-shadow: 0 6px 8px rgba(102, 119, 136, 0.03),
+              0 1px 2px rgba(102, 119, 136, 0.3);
+}
+
+.hamburger-menu__link {
+  display: block;
+  font-size: 1.5em;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: #345;
+  position: relative;
+
+  $ribbon-width: 0.4em;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    left: -$ribbon-width;
+    width: $ribbon-width;
+    background: #345;
+    will-change: transform;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &:hover,
+  &:focus {
+    &:before {
+      transform: translateX($ribbon-width);
+    }
+  }
+
+  &--active {
+    font-weight: bold;
+
+    &:hover,
+    &focus {
+      &:before {
+        transform: translateX($ribbon-width / 2);
+      }
+    }
+
+    &:before {
+      left: -($ribbon-width / 2);
+    }
+  }
 }
