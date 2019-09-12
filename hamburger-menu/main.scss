@@ -98,10 +98,19 @@ body {
   display: flex;
   flex-flow: column wrap;
   min-height: 100vh;
-  min-width: 300px;
+  max-width: 260px;
+  width: 100%;
   background: #fff;
   box-shadow: 0 6px 8px rgba(102, 119, 136, 0.03),
               0 1px 2px rgba(102, 119, 136, 0.3);
+
+  will-change: transform;
+  transition: transform 0.2s ease-in-out;
+  transform: translateX(-100%);
+
+  &--active {
+    transform: translateX(0);
+  }
 }
 
 .hamburger-menu__link {
@@ -138,7 +147,7 @@ body {
     font-weight: bold;
 
     &:hover,
-    &focus {
+    &:focus {
       &:before {
         transform: translateX($ribbon-width / 2);
       }

@@ -26,10 +26,10 @@ class HamburgerMenu {
    */
   _setARIA () {
     this.toggle.setAttribute('aria-label', 'Open menu');
-    this.toggle.setAttribute('aria-expanded', false);
+    this.toggle.setAttribute('aria-expanded', 'false');
     this.toggle.setAttribute('aria-controls', this.list.id);
 
-    this.list.setAttribute('aria-hidden', true);
+    this.list.setAttribute('aria-hidden', 'true');
     this.list.setAttribute('aria-controlledby', this.toggle.id);
   }
 
@@ -61,7 +61,11 @@ class HamburgerMenu {
   _showMenu () {
     this.state = true;
 
+    this.list.setAttribute('aria-hidden', 'false');
+    this.list.classList.add('hamburger-menu__list--active');
+
     this.toggle.setAttribute('aria-label', 'Close menu');
+    this.toggle.setAttribute('aria-expanded', 'true');
     this.toggle.classList.add('hamburger-menu__toggle--close');
   }
 
@@ -72,7 +76,11 @@ class HamburgerMenu {
   _hideMenu () {
     this.state= false;
 
+    this.list.setAttribute('aria-hidden', 'true');
+    this.list.classList.remove('hamburger-menu__list--active');
+
     this.toggle.setAttribute('aria-label', 'Open menu');
+    this.toggle.setAttribute('aria-expanded', 'false');
     this.toggle.classList.remove('hamburger-menu__toggle--close');
   }
 };
